@@ -1,0 +1,220 @@
+# HumanTextureizer — Vite + React + Tailwind
+
+This repository is a minimal Vite React app preconfigured with Tailwind CSS and includes the `HumanTextureizer` component.
+
+---
+
+## Project structure (files included in this single-file code doc)
+
+```
+human-texturizer/
+├─ package.json
+├─ vite.config.js
+├─ index.html
+├─ postcss.config.cjs
+├─ tailwind.config.cjs
+├─ src/
+│  ├─ main.jsx
+│  ├─ App.jsx
+│  ├─ components/
+│  │  └─ HumanTextureizer.jsx
+│  └─ assets/
+│     └─ (empty)
+├─ public/
+│  └─ favicon.ico
+└─ README.md
+```
+
+---
+
+### package.json
+
+```json
+{
+  "name": "human-texturizer",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint . --ext .js,.jsx"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "vite": "^5.0.0",
+    "tailwindcss": "^4.0.0",
+    "postcss": "^8.0.0",
+    "autoprefixer": "^10.0.0",
+    "eslint": "^8.0.0",
+    "eslint-plugin-react": "^7.0.0"
+  }
+}
+```
+
+---
+
+### vite.config.js
+
+```js
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+
+export default defineConfig({
+  plugins: [react()],
+})
+```
+
+---
+
+### index.html
+
+```html
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Human Textureizer</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+```
+
+---
+
+### postcss.config.cjs
+
+```js
+module.exports = {
+  plugins: {
+    tailwindcss: {},
+    autoprefixer: {},
+  }
+}
+```
+
+---
+
+### tailwind.config.cjs
+
+```js
+module.exports = {
+  content: ['./index.html', './src/**/*.{js,jsx}'],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+---
+
+### src/main.jsx
+
+```jsx
+import React from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App'
+
+createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+)
+```
+
+---
+
+### src/index.css
+
+```
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body, #root { height: 100%; }
+```
+
+---
+
+### src/App.jsx
+
+```jsx
+import React from 'react'
+import HumanTextureizer from './components/HumanTextureizer'
+
+export default function App(){
+  return (
+    <div className="min-h-screen bg-gray-50 p-6">
+      <HumanTextureizer />
+    </div>
+  )
+}
+```
+
+---
+
+### src/components/HumanTextureizer.jsx
+
+The full `HumanTextureizer` component (React) is included below. It is the same implementation provided earlier in the canvas — it handles image upload, client-side canvas processing (grain, fibers, scratches, edge enhancement, warmth/vignette), sliders and download. Place that component code here verbatim.
+
+---
+
+### public/favicon.ico
+
+Add any small favicon or leave default.
+
+---
+
+### README.md
+
+```md
+# Human Textureizer
+
+Minimal Vite + React + Tailwind app that applies human-like textures to images client-side.
+
+## Setup
+
+1. Install dependencies
+
+```bash
+npm install
+```
+
+2. Run dev server
+
+```bash
+npm run dev
+```
+
+3. Build for production
+
+```bash
+npm run build
+```
+
+## Notes
+- All processing is done in-browser using Canvas APIs.
+- To speed up for large images consider adding WebGL shader-based processing.
+```
+
+---
+
+## What I created in the canvas
+I added this complete app blueprint (Vite + Tailwind). The HumanTextureizer component itself is included in the `src/components/HumanTextureizer.jsx` placeholder above — use the component code from the previously created canvas document.
+
+If you'd like, I can now:
+
+1. Provide a downloadable ZIP of the full project (I will generate files and give a download link).
+2. Add WebGL/GLSL shader fast-path for grain & scratch effects.
+3. Create a GitHub-ready repo with README, license and CI config.
+
+Which option do you want next?
